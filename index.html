@@ -12,7 +12,8 @@
     body{font-family: Arial, sans-serif;line-height:1.6;color:#0B2545;margin:0;padding:0;background:#fff}
     .container{max-width:900px;margin:40px auto;padding:20px}
     header{display:flex;gap:20px;align-items:center}
-    img.avatar{width:140px;height:140px;border-radius:8px;object-fit:cover}
+    .avatar-wrap{width:140px;height:140px;border-radius:8px;overflow:hidden;flex:0 0 140px}
+    img.avatar{width:140px;height:140px;object-fit:cover}
     h1{margin:0;font-size:28px}
     h2{color:#007E7A}
     .metrics{display:flex;gap:12px;margin-top:16px}
@@ -25,7 +26,10 @@
 <body>
   <div class="container">
     <header>
-      <img src="assets/profile.jpg" alt="프로페셔널 헤드샷, 재킷을 입고 미소 짓는 인물" class="avatar">
+      <div class="avatar-wrap">
+        <!-- Inline placeholder SVG avatar so the page displays without external image uploads -->
+        <img class="avatar" src="data:image/svg+xml;utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Crect%20width='100%25'%20height='100%25'%20fill='%23007E7A'/%3E%3Ctext%20x='50%25'%20y='54%25'%20font-family='Arial'%20font-size='44'%20fill='%23ffffff'%20text-anchor='middle'%20dominant-baseline='middle'%3EJS%3C/text%3E%3C/svg%3E" alt="프로페셔널 헤드샷 대체 이미지: 진선라 이니셜">
+      </div>
       <div>
         <h1>진선라 — 고객경험 & 데이터 마케팅</h1>
         <p>생명보험·금융업 22년 — CX, 신사업, 데이터 기반 마케팅으로 NPS·전환·LTV 개선</p>
