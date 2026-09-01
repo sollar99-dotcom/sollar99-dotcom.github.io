@@ -20,13 +20,15 @@ if [ "$SLOT" = portrait ]; then
   sips -c "$D" "$D" "$WORK" >/dev/null
   sips -Z 640 -s format jpeg -s formatOptions 62 "$WORK" >/dev/null
 else
-  sips -Z 900 -s format jpeg -s formatOptions 55 "$WORK" >/dev/null
+  sips -Z 700 -s format jpeg -s formatOptions 62 "$WORK" >/dev/null
 fi
 
 cp "$WORK" "$ROOT/assets/$SLOT.jpg"
 base64 -i "$WORK" | tr -d '\n' > "$TMP/b64"
+PW=$(sips -g pixelWidth  "$WORK" | awk '/pixelWidth/{print $2}')
+PH=$(sips -g pixelHeight "$WORK" | awk '/pixelHeight/{print $2}')
 
-SLOT="$SLOT" B64="$TMP/b64" python3 - "$ROOT/index.html" <<'PY'
+SLOT="$SLOT" B64="$TMP/b64" PW="$PW" PH="$PH" python3 - "$ROOT/index.html" <<'PY'
 import os, re, sys
 path = sys.argv[1]
 slot = os.environ['SLOT']
@@ -35,7 +37,7 @@ uri  = 'data:image/jpeg;base64,' + b64
 h = open(path, encoding='utf-8').read()
 
 if slot == 'portrait':
-    img = ('<img src="%s" alt="Sollar 프로필 사진" width="640" height="640" />' % uri)
+    img = ('<img src="%s" alt="Sollar 프로필 사진" width="%s" height="%s" />' % (uri, os.environ['PW'], os.environ['PH']))
     # 자리표시자든 기존 사진이든 모두 교체
     pat = re.compile(r'(<div class="portrait-frame">\s*)'
                      r'(?:<!--.*?-->\s*)?'
@@ -44,7 +46,7 @@ if slot == 'portrait':
     h, n = pat.subn(lambda m: m.group(1) + img, h, count=1)
 else:
     img = ('<img class="plate-img" src="%s" alt="사막의 바위 아치 아래에 서 있는 모습" '
-           'width="900" height="1200" />' % uri)
+           'width="%s" height="%s" />' % (uri, os.environ['PW'], os.environ['PH']))
     pat = re.compile(r'<img class="plate-img"[^>]*?/>', re.S)
     h, n = pat.subn(img, h, count=1)
 
