@@ -15,9 +15,15 @@ TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
 WORK="$TMP/w.jpg"; cp "$SRC" "$WORK"
 
 if [ "$SLOT" = portrait ]; then
-  # 정사각 중앙 크롭 후 640px
-  D=$(sips -g pixelWidth -g pixelHeight "$WORK" | awk '/pixel/{print $2}' | sort -n | head -1)
-  sips -c "$D" "$D" "$WORK" >/dev/null
+  # 정사각 크롭 후 640px. 세로 사진은 얼굴이 위쪽에 있으므로 위로 치우쳐 자른다.
+  W=$(sips -g pixelWidth  "$WORK" | awk '/pixelWidth/{print $2}')
+  H=$(sips -g pixelHeight "$WORK" | awk '/pixelHeight/{print $2}')
+  if [ "$H" -ge "$W" ]; then
+    D=$W; TOP=$(( (H - D) * 15 / 100 )); LEFT=0
+  else
+    D=$H; TOP=0; LEFT=$(( (W - D) / 2 ))
+  fi
+  sips -c "$D" "$D" --cropOffset "$TOP" "$LEFT" "$WORK" >/dev/null
   sips -Z 640 -s format jpeg -s formatOptions 62 "$WORK" >/dev/null
 else
   sips -Z 700 -s format jpeg -s formatOptions 62 "$WORK" >/dev/null
