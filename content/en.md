@@ -25,12 +25,22 @@ Keywords: CX strategy · data marketing · new business validation · senior fin
 - Senior-focused service design (care & advisory)
 - Workshops & actionable roadmaps
 
-## Projects (brief cards)
-- Prudential — CX program: Customer Journey Map design and measurement system; +25% NPS.
-- Orphan Customer Retention — data-driven return program; 1.5× visits & conversions.
-- Retirement market new business — 450+ interviews; MVP validation.
-- KB Group — loyalty policy & platform planning; KB Star Club launch (2023.07).
-- KB Life — senior care consulting service planning & launch (2025.03).
+## Projects (detailed cards, ~150–300 words each)
+
+### Prudential — CX program
+I led the implementation of a company-wide customer experience (CX) program at Prudential. I designed customer journey maps and a measurement framework, rolled out experience surveys, and established governance and reporting processes. The program drove a 25% increase in company-wide NPS and created repeatable processes for continual CX improvement.
+
+### Orphan Customer Retention
+I designed and ran a data-driven retention program targeting orphaned customers (those with decreased engagement or lost touchpoints). By applying segmentation, personalized campaigns, and targeted outreach, we achieved a 1.5× improvement in visits and conversions, iterating via A/B tests to optimize performance.
+
+### Retirement market new business
+In a retirement-market initiative, I conducted 450+ in-depth interviews with retirees and prospective customers to surface unmet needs. Using these insights, I helped design business concepts and led MVP development and market validation to assess product-market fit.
+
+### KB Group — Loyalty & Platform
+I led loyalty policy development and platform requirements for KB Group’s loyalty program, overseeing the launch of KB Star Club (2023.07). My role covered policy design, platform specs, and go-to-market coordination.
+
+### KB Life — Senior care service
+At KB Life, I led the planning and launch of an industry-first senior care consulting service (2025.03). I managed partner selection, service design, pilot operations, and roadmap planning for commercialization.
 
 ## Leadership
 - Chair, WINNEXT — leadership platform for women
