@@ -44,9 +44,9 @@ h = open(path, encoding='utf-8').read()
 if slot == 'portrait':
     img = ('<img src="%s" alt="Sollar 프로필 사진" width="%s" height="%s" />' % (uri, os.environ['PW'], os.environ['PH']))
     # 자리표시자든 기존 사진이든 모두 교체
-    pat = re.compile(r'(<div class="portrait-frame">\s*)'
+    pat = re.compile(r'(<figure class="portrait">\s*)'
                      r'(?:<!--.*?-->\s*)?'
-                     r'(?:<div class="portrait-fallback">.*?</div>|<img\b[^>]*?/>)',
+                     r'(?:<div class="portrait-hold">.*?</div>|<img\b[^>]*?/>)',
                      re.S)
     h, n = pat.subn(lambda m: m.group(1) + img, h, count=1)
 else:
