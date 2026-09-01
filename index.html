@@ -366,28 +366,46 @@ h2{
 }
 .org[open] .caret{ transform:rotate(180deg); }
 
-.roles{ list-style:none; margin:0; padding:0 0 1.1rem; }
+.roles{ list-style:none; margin:0; padding:0 0 1.3rem; }
 .roles li{
   display:grid;
-  grid-template-columns:4.5rem 1fr;
-  gap:.2rem .9rem;
-  padding:.6rem 0 .6rem 1rem;
+  grid-template-columns:5.6rem 1fr;
+  gap:.35rem 1.1rem;
+  padding:.95rem 0 .95rem 1.1rem;
   border-left:1px solid var(--rule-soft);
 }
 .roles li.now{ border-left-color:var(--seal); }
 .yr{
-  font-size:.8rem; color:var(--ink-3);
+  font-size:.78rem; color:var(--ink-3);
   font-variant-numeric:tabular-nums;
-  padding-top:.15rem;
+  line-height:1.55; padding-top:.28rem;
 }
-.role{ font-weight:600; font-size:.98rem; }
+.rbody{ min-width:0; }
+.role{ display:block; font-weight:600; font-size:.98rem; letter-spacing:-.01em; }
 .note{
-  grid-column:2; font-size:.86rem; color:var(--ink-3);
-  margin-top:-.15rem;
+  display:block; font-size:.85rem; color:var(--ink-3);
+  margin-top:.12rem;
+}
+.pts{ list-style:none; margin:.7rem 0 0; padding:0; }
+.pts li{
+  display:block; position:relative;
+  padding:0 0 0 .9rem; border:0;
+  font-size:.87rem; line-height:1.8; color:var(--ink-2);
+  margin-bottom:.15rem;
+}
+.pts li::before{
+  content:""; position:absolute; left:0; top:.85em;
+  width:5px; height:1px; background:var(--rule);
+}
+.pts b{ font-weight:600; color:var(--ink); }
+.milestone{
+  display:inline-block; margin-top:.75rem;
+  font-size:.79rem; color:var(--seal);
+  border-bottom:1px solid rgba(180,55,42,.3);
+  padding-bottom:.15rem;
 }
 @media (max-width:520px){
   .roles li{ grid-template-columns:1fr; padding-left:.9rem; }
-  .note{ grid-column:1; }
 }
 
 /* ═══════════════ 7. 기록 ═══════════════ */
@@ -684,40 +702,105 @@ footer{
     <div class="sec-head rise">
       <span class="sec-no">02</span>
       <h2>경력</h2>
-      <p class="sec-sub">보험·금융 22년. 고객을 이해하는 자리에서만 일했습니다.</p>
+      <p class="sec-sub">푸르덴셜생명 16년 7개월 · KB국민은행 3년 · KB라이프생명. 22년 동안 고객을 이해하는 자리에서만 일했습니다.</p>
     </div>
 
     <div class="tl">
+
       <details class="org rise" open>
         <summary class="org-sum">
           <h3 class="org-name">KB라이프생명</h3>
-          <span class="org-span"><span class="todo">기간 확인 필요</span></span>
+          <span class="org-span">2024.02 – 현재 · 2년 8개월</span>
           <span class="chip-now">현재</span>
           <span class="caret" aria-hidden="true">▾</span>
         </summary>
         <ul class="roles">
           <li class="now">
-            <span class="yr">현재</span>
-            <span class="role">데이터기획부 CRM 리더</span>
-            <span class="note">고객 세그멘테이션·개인화 캠페인·AI 활용 CRM</span>
+            <span class="yr">2026.01<br />– 현재</span>
+            <div class="rbody">
+              <span class="role">책임 · 데이터기획파트</span>
+              <span class="note">Customer CRM Strategist | Data-driven Marketing</span>
+              <ul class="pts">
+                <li>고객 데이터를 활용한 세그멘테이션 및 타겟 마케팅 전략 기획</li>
+                <li>고객 생애주기(Customer Lifecycle)에 맞춘 CRM 프로그램 기획·운영</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2024.02<br />– 2026.02</span>
+            <div class="rbody">
+              <span class="role">책임 · 시니어 웰니스추진 파트</span>
+              <span class="note">시니어케어 New Business Development</span>
+              <ul class="pts">
+                <li>‘요양돌봄 컨설팅 서비스’ 컨셉 개발 및 시장 검증 (2024)</li>
+                <li>‘요양돌봄 컨설팅 서비스’ 런칭 및 안정화 (2025.03)</li>
+                <li>자회사 ‘골든라이프케어’ 마케팅 지원</li>
+              </ul>
+              <span class="milestone">보험업계 최초 · 요양돌봄 컨설팅 서비스 출시</span>
+            </div>
           </li>
         </ul>
       </details>
 
       <details class="org rise">
         <summary class="org-sum">
-          <h3 class="org-name"><span class="todo">이전 회사 확인 필요</span></h3>
-          <span class="org-span">—</span>
+          <h3 class="org-name">KB국민은행</h3>
+          <span class="org-span">2021.02 – 2024.01 · 3년</span>
           <span class="caret" aria-hidden="true">▾</span>
         </summary>
         <ul class="roles">
           <li>
-            <span class="yr">—</span>
-            <span class="role"><span class="todo">역할·기간을 LinkedIn 공개 프로필 수준으로 채워주세요</span></span>
-            <span class="note">회사 / 직함 / 연차만 있으면 됩니다</span>
+            <span class="yr">2021.02<br />– 2024.01</span>
+            <div class="rbody">
+              <span class="role">차장 · 개인고객기획부</span>
+              <span class="note">KB금융지주 겸직</span>
+              <ul class="pts">
+                <li>KB금융그룹 로열티 프로그램 <b>스타클럽</b> 재설계 및 런칭 (2023.07)</li>
+                <li>KB그룹 계열사 협업 애자일 마케팅 프로젝트 참여</li>
+              </ul>
+              <span class="milestone">스타클럽 13년 만의 전면 개편</span>
+            </div>
           </li>
         </ul>
       </details>
+
+      <details class="org rise">
+        <summary class="org-sum">
+          <h3 class="org-name">푸르덴셜생명</h3>
+          <span class="org-span">2004.07 – 2021.01 · 16년 7개월</span>
+          <span class="caret" aria-hidden="true">▾</span>
+        </summary>
+        <ul class="roles">
+          <li>
+            <span class="yr">2019.03<br />– 2021.01</span>
+            <div class="rbody">
+              <span class="role">차장 · Retirement Market New Business Development</span>
+              <span class="note">글로벌 프로젝트 Belong (2019.03–2020.08)</span>
+              <ul class="pts">
+                <li>실리콘밸리 기반 미국·대만·한국 은퇴시장 신사업 프로젝트</li>
+                <li>고객 인터뷰를 통한 신사업 아이템 발굴 및 비즈니스 컨셉 개발</li>
+                <li>Validation Hacking Program 실행</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2004.07<br />– 2019.02</span>
+            <div class="rbody">
+              <span class="role">차장 · In-force Marketing &amp; CX 전략</span>
+              <span class="note">고객 데이터 기반 마케팅 기획 및 CX 전략 총괄 · 14년 8개월</span>
+              <ul class="pts">
+                <li>고객 데이터 분석을 기반으로 In-force Marketing 프로그램 기획·운영</li>
+                <li>담당 설계사가 없는 <b>Orphan Customer</b> 관리 체계를 총괄 설계·운영해, 사각지대에 있던 고객군의 케어 프로세스를 확립</li>
+                <li><b>CX 개념을 조직에 처음 도입</b>하고 전략 수립 프로젝트를 리드해 고객 경험 관리를 전사 어젠다로 정착</li>
+                <li>Customer Journey Map을 신규 개발해 접점별 경험을 시각화하고, 이를 근거로 개선 우선순위를 수립</li>
+                <li>CX Research 설계 및 Research Standard를 자체 개발, 정성·정량 조사를 표준 프로세스로 체계화</li>
+                <li>NPS Tracking Process를 도입·정착시켜 <b>전사 NPS 25% 향상</b></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </details>
+
     </div>
   </div>
 </section>
