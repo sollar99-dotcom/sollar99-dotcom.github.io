@@ -15,16 +15,15 @@ TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
 WORK="$TMP/w.jpg"; cp "$SRC" "$WORK"
 
 if [ "$SLOT" = portrait ]; then
-  # 정사각 크롭 후 640px. 세로 사진은 얼굴이 위쪽에 있으므로 위로 치우쳐 자른다.
+  # 4:5 세로 크롭 후 폭 640px. 얼굴이 위쪽에 있으므로 위로 치우쳐 자른다.
   W=$(sips -g pixelWidth  "$WORK" | awk '/pixelWidth/{print $2}')
   H=$(sips -g pixelHeight "$WORK" | awk '/pixelHeight/{print $2}')
-  if [ "$H" -ge "$W" ]; then
-    D=$W; TOP=$(( (H - D) * 15 / 100 )); LEFT=0
-  else
-    D=$H; TOP=0; LEFT=$(( (W - D) / 2 ))
-  fi
-  sips -c "$D" "$D" --cropOffset "$TOP" "$LEFT" "$WORK" >/dev/null
-  sips -Z 640 -s format jpeg -s formatOptions 62 "$WORK" >/dev/null
+  # 목표 4:5 (가로:세로). 원본에 맞춰 가능한 최대 크기를 잡는다
+  CW=$W; CH=$(( W * 5 / 4 ))
+  if [ "$CH" -gt "$H" ]; then CH=$H; CW=$(( H * 4 / 5 )); fi
+  TOP=$(( (H - CH) * 15 / 100 )); LEFT=$(( (W - CW) / 2 ))
+  sips -c "$CH" "$CW" --cropOffset "$TOP" "$LEFT" "$WORK" >/dev/null
+  sips --resampleWidth 640 -s format jpeg -s formatOptions 62 "$WORK" >/dev/null
 else
   sips -Z 700 -s format jpeg -s formatOptions 62 "$WORK" >/dev/null
 fi
