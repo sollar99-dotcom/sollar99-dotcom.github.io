@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 
 <!-- 파비콘 — 인주 도장 안에 ㅅ -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b4372a'/%3E%3Ctext x='32' y='45' font-family='serif' font-size='38' font-weight='700' fill='%23faf7f2' text-anchor='middle'%3E%EC%84%A4%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23b4372a'/%3E%3Ctext x='32' y='45' font-family='serif' font-size='38' font-weight='700' fill='%23faf7f2' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
 
 <!--
   ─────────────────────────────────────────────────────────────
@@ -254,7 +254,7 @@ h1 .nm::after{
   display:grid; place-items:center;
   background:
     radial-gradient(120% 120% at 30% 20%, var(--paper-2), var(--paper-3));
-  font-family:var(--serif); font-size:4.5rem; color:var(--ink-3);
+  font-family:var(--serif); font-size:2.1rem; letter-spacing:.02em; color:var(--ink-3);
 }
 .portrait-cap{
   position:absolute; left:0; right:0; bottom:.85rem;
@@ -263,13 +263,14 @@ h1 .nm::after{
   letter-spacing:.06em;
 }
 .seal{
-  position:absolute; right:-.55rem; bottom:1.3rem;
-  width:3.1rem; height:3.1rem;
+  position:absolute; right:-.7rem; bottom:1.35rem;
   display:grid; place-items:center;
-  border:2px solid var(--seal); border-radius:5px;
+  padding:.3rem .62rem;
+  border:1.5px solid var(--seal); border-radius:4px;
   color:var(--seal);
-  font-family:var(--serif); font-weight:700; font-size:1.45rem; line-height:1;
-  background:rgba(250,247,242,.9);
+  font-family:var(--serif); font-weight:700;
+  font-size:.9rem; line-height:1.15; letter-spacing:.02em;
+  background:rgba(250,247,242,.92);
   transform:rotate(6deg);
   opacity:.92;
 }
@@ -665,10 +666,10 @@ footer{
     <div class="portrait">
       <div class="portrait-frame">
         <!-- ⟪확인 필요⟫ 프로필 사진을 받으면 아래 div 를 <img src="data:image/jpeg;base64,…"> 로 교체 -->
-        <div class="portrait-fallback">설</div>
+        <div class="portrait-fallback">Sollar</div>
         <span class="portrait-cap">Sollar</span>
       </div>
-      <span class="seal" aria-hidden="true">설</span>
+      <span class="seal" aria-hidden="true">Sollar</span>
     </div>
   </div>
 </header>
