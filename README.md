@@ -21,13 +21,15 @@ LinkedIn 원문 링크를 붙이려면 `<article>` 에 `data-src="글 주소"` �
 
 ## 사진 바꾸는 법
 
-이미지는 base64 로 `index.html` 안에 심겨 있다. 원본은 `assets/` 에 있다.
+스크립트가 리사이즈 · base64 변환 · 삽입을 한 번에 한다.
 
 ```
-sips -Z 900 -s format jpeg -s formatOptions 55 새사진.jpg
-base64 -i 새사진.jpg
+tools/set-photo.sh portrait ~/Desktop/헤드샷.jpg   # 히어로 오른쪽 인물 사진
+tools/set-photo.sh plate    ~/Desktop/풍경.jpg     # 전면 가로 사진
 ```
-출력을 `data:image/jpeg;base64,` 뒤에 붙여 넣으면 된다.
+
+`portrait` 는 정사각 중앙 크롭 후 640px, `plate` 는 900px 로 줄인다.
+원본은 `assets/` 에 자동 보관된다. 몇 번을 다시 돌려도 안전하다.
 
 ## 폴더
 
